@@ -1,8 +1,7 @@
-// not solved
 
 /*
-Search space from 1 to the max val in the array 
-because with max val in the array would get you the fastest eating, 
+Search space from 1 to the max val (except you keep track, not an array)
+because with max val would get you the fastest eating, 
 but we want the minimum eating rate k. thus bin search.
 */
 
@@ -22,22 +21,22 @@ class Solution {
             return hours;
         }
     
-        int binSearch(vector<int>& arr, vector<int>& piles, int h, int l, int r, int min_k) {
+        int binSearch(vector<int>& piles, int h, int l, int r, int min_k) {
             
-            if (l >= r) {
+            if (l > r) {
                 cout << "oop" << endl;
                 return min_k;
             }
     
             int mid = (l+r)/2;
-            int hrs = eatBananas(piles, arr[mid]);
-            if (hrs > h) {
-                // increase eating speed
-                return binSearch(arr, piles, h, mid+1, r, min_k);
-            } else {
+            int hrs = eatBananas(piles, mid);
+            if (hrs <= h) {
                 // decrease eating speed
-                min_k = arr[mid];
-                return binSearch(arr, piles, h, l, mid, min_k);
+                min_k = mid;
+                return binSearch(piles, h, l, mid-1, min_k);
+            } else {
+                // increase eating speed
+                return binSearch(piles, h, mid+1, r, min_k);
             }
             
     
@@ -48,7 +47,7 @@ class Solution {
             vector<int> possible_k;
     
             // base case
-            if (piles.size() ==1) return eatBananas(piles, piles[0]);
+            if (piles.size() ==1) return ceil( (double)piles[0] / h);
     
             // find max
             int max = piles[0];
@@ -56,15 +55,16 @@ class Solution {
                 max = std::max(piles[i], max);
             }
     
-            // populate search space for banana eating rates
-            for (int i = 1; i <= max; ++i ) {
-                possible_k.push_back(i);
-            }
+            // not needed
+            // // populate search space for banana eating rates
+            // for (int i = 1; i <= max; ++i ) {
+            //     possible_k.push_back(i);
+            // }
             
     
-            // bin search
             int len = possible_k.size()-1;
-            return binSearch(possible_k, piles, h, 0, len, possible_k[len]);
+            // binary search with possible k values from 1 to max value
+            return binSearch(piles, h, 1, max, max);
     
         }
     };
