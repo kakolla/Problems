@@ -2,6 +2,9 @@
 Trick is that you don't need to brute force reverse every col and row
 just iterate over the square n and find the mirrored (2 * n - r -1), etc values and find the max of those
 
+Problem: find max sum of sub-matrix of size n*n of matrix 2n * 2n 
+by reversing the rows & cols
+
 */
 
 #include <vector>
