@@ -1,24 +1,30 @@
-while (1) {
-    // max jump -- we can jump less
-    // greedily pick the furthest position
-    int temp = p;
-    p += nums[p];
-    if (p >= l) return true; // out of bounds ( can reach last index)
-    // if (nums[p] == 0) return false;
-    if (nums[p] == 0) {
-        for (int i = nums[temp]-1; i > 0; i--) {
-            cout << "i: " <<  i << endl;
-            cout << nums[temp+i] << endl;
-            if (nums[temp+i] != 0) {
-                p = i; cout << "yur " << endl;
-                break;
+/*
+Store a variable max reach, and you greedily choose the furthest 
+pos you can jump (which is position + max jump).
+if a section in the array (i) is not reachable (less than max reach), you cant reach the end
+
+
+*/
+
+class Solution {
+    public:
+        bool canJump(vector<int>& nums) {
+            if (nums.size() == 1) return true;
+            int l = nums.size() - 1;
+    
+            // max reach can be determined as i (position) + max jump (nums[i])
+            // if max reach extends or equals last pos, we can reach the last index
+            int max_r = 0;
+            for (int i = 0; i < nums.size(); ++i) {
+                if (i > max_r) return false; // this index cannot be reached (max reach doesnt get there)
+    
+                if (max_r >= l) return true;
+                max_r = std::max(max_r, i + nums[i]);
+    
+                
             }
-            cout << "PICKEdddd" << p << endl;
+            return false;
+    
         }
-        cout << "end " << endl;
-        // check if there's a loop 
-        if (nums[p] == 0) return false;
-    }
-    cout << "p: " << p << endl;
-    if (nums[p] == 0) return false;
-}
+    };
+    
