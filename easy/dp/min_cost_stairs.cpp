@@ -1,4 +1,5 @@
 // dam bruh i solved it without any help
+// approach: always think of the recurrence relation
 
 class Solution {
     public:
