@@ -1,3 +1,13 @@
+/*
+To bring Most recently used (MRU) item to the front, a queue could work
+but if item is in the middle it is O(n) to bring up front
+hence use a doubly LL to bring up front 
+- just messy with pointers
+- but bringing up to front, and checking to update node or evict LRU (head of LL) is required
+
+- could be written a lil cleaner with more functions but under time this is alr
+*/
+
 #include <unordered_map>
 #include <iostream>
 using namespace std;
@@ -105,7 +115,6 @@ class LRUCache {
                     tail = head;
                     return;
                 }
-                // logic to replace Least recently used
                 
                 // first check if key exists
                 if (mp.find(key) != mp.end()) {
@@ -117,8 +126,9 @@ class LRUCache {
                     return;
                     
                 }
-
-
+                
+                
+                // logic to replace Least recently used
                 cout << "MAX capacity" << endl;
                 // remove head (LRU) & update map
                 Node* temp = head;
