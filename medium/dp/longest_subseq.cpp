@@ -3,6 +3,15 @@ This is top-down approach with recursion + memoization
 acc makes sense
 start at the top it will spawn a lot of recursive calls
 but it will cache it so it improves runtime
+
+thinking:
+iterating thru both strings with i, j
+if i == j
+    return max length = 1 + rec()
+else
+    return max length = max( rec(i+1, j), rec(i, j+1) )
+    // calls will explore extending both windows by one
+    // cache them for later
 */
 
 #include <string>
