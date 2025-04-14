@@ -1,5 +1,5 @@
 // nice solved with minimal help in approach
-// same 1d dp method 
+// same 1d dp method - uses tabulation
 // just be careful about the recurrence relation
 
 #include <vector>
