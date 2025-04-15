@@ -1,4 +1,9 @@
-
+/*
+Same as hosue robber 1 
+except you exclude robbing the first hosue and run same algo
+and then exclude the lsat house
+take the max value you saw
+*/
 
 
 class Solution {
