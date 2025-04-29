@@ -75,6 +75,11 @@ if "__main__" == __name__:
     print("largest is: ")
     print(-heapq.heappop(pq))
 
+    # dict with safe access
+    print("map with safe access")
+    mp = {}
+    print(mp.get(0, -1)) # 2nd param is default value
+
     
 
 
