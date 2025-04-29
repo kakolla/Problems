@@ -62,6 +62,19 @@ if "__main__" == __name__:
     to_find = arr[6]  
     print(to_find)
     print(bin_search(arr, to_find))
+
+    # maxheap
+    print("max heap:")
+    import heapq
+    pq = []
+    heapq.heappush(pq, -3)
+    heapq.heappush(pq, -2)
+    heapq.heappush(pq, -0)
+    heapq.heappush(pq, -10)
+    heapq.heappush(pq, -1)
+    print("largest is: ")
+    print(-heapq.heappop(pq))
+
     
 
 
