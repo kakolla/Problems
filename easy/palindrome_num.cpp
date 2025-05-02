@@ -36,9 +36,9 @@ public:
     }
 };
 
-int main()
-{
-    Solution* bread = new Solution();
-    cout << bread->isPalindrome(1234567899);
-    return 0;
-}
+// int main()
+// {
+//     Solution* bread = new Solution();
+//     cout << bread->isPalindrome(1234567899);
+//     return 0;
+// }
