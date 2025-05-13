@@ -11,6 +11,7 @@ class Solution:
         max_right = self.recurse(nums, m+1, r)
 
         # spanning across middle
+        # find best sum that includes middle element, expanding out left, then right O(n)
         best_left = float('-inf')
         temp = 0
         for k in range(m, l-1, -1):
