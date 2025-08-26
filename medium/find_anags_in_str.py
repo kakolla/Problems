@@ -12,6 +12,12 @@ class Solution:
         f = Counter(p)
 
         while r <= len(s):
+            cur = s[l:r]
+            if Counter(cur) == f:
+                ans.append(l)
+            l+= 1
+            r+= 1
+        return ans
 
             
 
