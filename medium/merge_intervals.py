@@ -1,30 +1,25 @@
-from typing import List
-
-
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        merged = []
-
-        srt = sorted(intervals, key=lambda x: x[0])
-
-        merged.append(srt[0])
-        i = 1
-        while i < len(srt):
-            last = merged.pop()
-
-            # if current conflicts with last merged
-            if last[1] >= srt[i][0]:
-                if last[0] <= srt[i][0] and srt[i][1] <= last[1]:
-                    merged.append(last) # do nothing -- in between
-                if last[0] <= srt[i][0] and srt[i][1] > last[1]:
-                    merged.append([last[0], srt[i][1]])
-            else:
-                merged.append(last)
-                merged.append(srt[i])
-            
-            i += 1
-            
-        return merged
-
-
+        # o: array of non-overlapping intervals
+        # i: intervals, not sorted
         
+        # sort based on start time
+        intervals.sort(key=lambda x: x[0])
+
+        st = []
+        for s, e in intervals:
+            if len(st) == 0:
+                st.append([s, e])
+                continue
+            top = st.pop()
+            a,b = top[0], top[1]
+            if s <= b and e >= b:
+                # merge
+                st.append([a, e])
+            elif s > b:
+                st.append([a, b])
+                st.append([s, e])
+            else:
+                st.append([a, b])
+        
+        return st
