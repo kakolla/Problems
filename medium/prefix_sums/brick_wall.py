@@ -2,7 +2,7 @@
 keep track of prefix sum, which just tracks the positions of edges
 then use that and logic what would get min slices
 """
-
+from typing import List
 class Solution:
     def leastBricks(self, wall: List[List[int]]) -> int:
         # o: min number of crossed bricks
