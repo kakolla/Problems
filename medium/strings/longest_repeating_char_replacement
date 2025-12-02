@@ -1,0 +1,25 @@
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        from collections import defaultdict
+
+        m = defaultdict(int)
+        l = r = 0
+
+        ans = 0 # maximum length of substr with same letter
+        while r < len(s):
+            m[s[r]] += 1 # increase count
+            # get most freq char
+            most_freq_amt = max(m.values())
+            ops = r+1 - l - most_freq_amt # ops leftover to change
+            if ops <= k:
+                ans = max(ans, r+1-l)
+                r +=1 #incr window
+            else:
+                # subtract window
+                m[s[l]] -=1
+                l += 1
+                r += 1
+        
+        return ans
+
+
