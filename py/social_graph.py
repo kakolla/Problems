@@ -80,7 +80,7 @@ class SocialSystem:
                 if a_follow in self.get_followers(c, snapshot_id):
                     times += 1
             # check if a also follows c, if not ignore:
-            if c not in a_followings and c != a:
+            if c not in a_followings:
                 ans.append((c, times))
         ans = list(set(ans)) # dedupe
         ans.sort(reverse=True, key=lambda x: x[1])
