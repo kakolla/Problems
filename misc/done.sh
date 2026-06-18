@@ -1,8 +1,7 @@
-#!bin/bash
+#!/bin/bash
 set -e
 
 
-git pull
 git status
 
 git add main.py
