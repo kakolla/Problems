@@ -24,7 +24,6 @@ fi
 git status
 read -p "continue? (y/n)" confirm 
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-	git add .
 	git commit -m "done problem - ${NAME}"
 	git push
 else
