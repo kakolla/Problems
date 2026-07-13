@@ -32,5 +32,32 @@ else
 fi
 
 
-echo '' > main.cpp
+echo '
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <bits/stdc++.h>
+
+
+int main() {
+
+
+
+
+
+
+    return 0;
+}
+
+' > main.cpp
 echo '' > main.py
