@@ -4,3 +4,5 @@ main.py
 main.cpp
 .clangd
 .clangd-include/
+
+a.out
