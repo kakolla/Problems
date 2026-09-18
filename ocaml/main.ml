@@ -51,6 +51,17 @@ print_list ls2;;
 
 
 
+print_endline "Creating a really big list";;
+(*create a big list*)
+let rec make_big_list n =
+        if n <=0 then Nil
+        else Cons(1, make_big_list (n-1));;
+
+let newl = make_big_list 10000000;;
+
+        
+
+
 
 
 
