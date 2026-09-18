@@ -42,6 +42,12 @@ let rec snoc l value =
         | Nil -> Cons(value, Nil)
         | Cons(hd, tl) -> Cons(hd, snoc tl value);;
 
+print_endline "Adding to end of list";;
+
+let ls2 = snoc ls 0;;
+
+print_list ls2;;
+
 
 
 
