@@ -20,10 +20,27 @@ let ls = Cons(3, Cons(2, Cons(1, Nil)));;
 let answer = get_length ls;;
 let answer_str = Int.to_string answer;;
 
+print_endline "Length of list:";;
 print_endline answer_str;;
 
 
+print_endline "Printing list now:";;
+(*Print *)
+let rec print_list l = 
+        match l with
+        | Nil ->  print_endline("---")
+        | Cons(hd, tl) ->
+                        print_endline(Int.to_string hd);
+                        print_list tl;;
 
+
+print_list ls;;
+
+(*add value to end of list*)
+let rec snoc l value = 
+        match l with 
+        | Nil -> Cons(value, Nil)
+        | Cons(hd, tl) -> Cons(hd, snoc tl value);;
 
 
 
