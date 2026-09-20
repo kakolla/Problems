@@ -57,7 +57,13 @@ let rec make_big_list n =
         if n <=0 then Nil
         else Cons(1, make_big_list (n-1));;
 
-let newl = make_big_list 10000000;;
+
+let l = make_big_list 1000000 in get_length (Cons(98, l));;
+
+(* let l = make_big_list 1000000 in get_length (snoc l 98);; *)
+
+
+
 
         
 
