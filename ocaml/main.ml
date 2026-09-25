@@ -9,10 +9,22 @@ let l2 = Cons(3,Nil);;
 
 
 
+(* let rec get_length l =  *)
+(*         match l with *)
+(*         | Nil -> 0 *)
+(*         | Cons(hd, tl) -> 1 + get_length tl;; *)
+
+
+
 let rec get_length l = 
         match l with
-        | Nil -> 0
-        | Cons(hd, tl) -> 1 + get_length tl;;
+        | [] -> 0
+        | hd :: tl  -> 1 + get_length tl;;
+
+
+
+
+
 
 
 let ls = Cons(3, Cons(2, Cons(1, Nil)));;
@@ -58,9 +70,9 @@ let rec make_big_list n =
         else Cons(1, make_big_list (n-1));;
 
 
-let l = make_big_list 1000000 in get_length (Cons(98, l));;
+let l = make_big_list 100000 in get_lendth (Cons(98, l));;
 
-(* let l = make_big_list 1000000 in get_length (snoc l 98);; *)
+let l = make_big_list 100000 in get_length (snoc l 98);;
 
 
 
